@@ -1,0 +1,148 @@
+# Exercício 4 - Operações e Interpolação
+
+ No estilo do exercício anterior, mude todos os font-size do estilo de pixel para rem, para isso faça uma operação para converção de pixel para rem e depois faça uma interpolação da operação com a unidade rem.
+
+Lembre-se: 1rem = 16pixels
+
+
+
+```
+$tipo-padrao: 16;
+$tipo-titulo-principal: 24;
+$tipo-titulo-secundaria: 28;
+$tipo-padrao: $tipo-padrao / $tipo-padrao;
+$tipo-principal: $tipo-titulo-principal / $tipo-padrao;
+$tipo-secundaria: $tipo-titulo-secundaria / $tipo-padrao;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: #{$tipo-padrao}#{rem};
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: $cor-suporte1;
+}
+
+main {
+  width: 90%;
+  max-width: 935px;
+  margin: &margin-center;
+}
+
+header {
+  display: flex;
+  margin: 30px 0;
+  flex-flow: column;
+  .avatar {
+    -webkit-border-radius: $raio-principal;
+    -moz-border-radius: $raio-principal;
+    border-radius: $raio-principal;
+    margin: &margin-center;
+  }
+  .desc {
+    text-align: center;
+  }
+  h1, h2 {
+    display: inline-block;
+    margin: $margin-secundaria;
+  }
+  h1 {
+    font-size: #{$tipo-secundaria}#{rem};
+  }
+  h2 {
+    font-size: #{$tipo-principal}#{rem};
+  }
+  .links {
+    list-style: $estilo-lista;
+    margin: $margin-secundaria;
+  }
+  .links li {
+    list-style: $estilo-lista;
+    margin: 0 20px 0 0;
+    display: inline-block;
+  }
+}
+
+.btn-follow {
+  margin: 0 20px;
+  padding: 6px 14px;
+  border: {
+    width: 1px;
+    style: solid;
+    color: $cor-principal;
+    radius: $raio-suporte;
+  }
+  -webkit-border-radius: $raio-suporte;
+  -moz-border-radius: $raio-suporte;
+  color: $cor-principal;
+  &:hover {
+    background-color: $cor-principal;
+    color: $cor-suporte2;
+  }
+}
+
+.photos {
+  list-style: $estilo-lista;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+  li {
+    width: 100%;
+    margin: 20px 0;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .img-hover {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $cor-suporte3;
+      transition: all 0.3s linear;
+    }
+    &:hover .img-hover {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 768px ) {
+  header {
+    flex-flow: row;
+    .avatar {
+      margin: 0 40px;
+    }
+    .desc {
+    text-align: left;
+    }
+  }
+  .photos li {
+      width: 30%;
+  }
+}
+
+```
