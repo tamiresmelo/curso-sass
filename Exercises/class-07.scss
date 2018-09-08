@@ -1,0 +1,34 @@
+# Exercício 7 - Placeholder
+
+Transforme o estilo criado para os botões em um placeholder.
+
+
+```
+
+$cor-principal: #3897f0;
+$cor-suporte: #f2f2f2;
+$raio-principal: 5px;
+
+%btn {
+  padding: 15px 25px;
+  border: {
+    width: 2px;
+    style: solid;
+    color: $cor-principal;
+    radius: $raio-principal;
+  }
+  -webkit-border-radius: $raio-principal;
+  -moz-border-radius: $raio-principal;
+  margin: 0 20px;
+  color: $cor-principal;
+}
+
+.btn-follow {
+  @extend %btn;
+  &:hover {
+    background-color: $cor-principal;
+    color: $cor-suporte;
+  }
+}
+
+```
